@@ -17,16 +17,16 @@
     {
         "name": "佣兵王·雷克斯",
         "content": "从角斗士崛起的佣兵之王，战斗经验丰富，领导着大陆最强的佣兵团'钢铁之翼'。",
-        "url": "/role3/detail.html"
+        "url": "./api/苏子辰.html"
     },
     {
-        "name": "黑客少女·Neo",
-        "content": "网络世界的幽灵，16岁的天才黑客，能够入侵任何系统，为反抗科技巨头而战。",
-        "url": "/role4/detail.html"
+        "name": "妖道·苏文天",
+        "content": "妖道始祖",
+        "url": "./api/苏文天.html"
     },
     {
-        "name": "龙族后裔·炎烬",
-        "content": "拥有远古龙族血脉的战士，能部分龙化获得强大力量，寻找龙族消失的真相。",
-        "url": "/role5/detail.html"
+        "name": "蛇祖·苏天彬",
+        "content": "世界创世神祖",
+        "url": "./api/苏天彬.html"
     }
 ]
