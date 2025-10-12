@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>《天彬TianBIN》 | 框架官网</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #e0f7e9, #c8f0d8);
+            color: #1a3c2c;
+            min-height: 100vh;
+            padding-bottom: 40px;
+        }
+        
+        header {
+            background: linear-gradient(to right, #2e7d32, #1b5e20);
+            color: white;
+            padding: 20px 0;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .logo-icon {
+            font-size: 2.5rem;
+            color: #a5d6a7;
+        }
+        
+        .logo-text {
+            font-size: 2rem;
+            font-weight: 700;
+            letter-spacing: 1px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+        }
+        
+        .nav-buttons {
+            display: flex;
+            gap: 20px;
+        }
+        
+        .nav-btn {
+            background: rgba(255, 255, 255, 0.15);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            border-radius: 50px;
+            padding: 12px 25px;
+            color: white;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255, 255, 255, 0.25);
+            transform: translateY(-3px);
+        }
+        
+        .home-btn {
+            background: #ff9800;
+            border-color: #ff9800;
+        }
+        
+        .home-btn:hover {
+            background: #f57c00;
+        }
+        
+        main {
+            padding: 40px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+            position: relative;
+        }
+        
+        .section-title h1 {
+            font-size: 2.8rem;
+            color: #1b5e20;
+            margin-bottom: 15px;
+            text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        .section-title p {
+            font-size: 1.2rem;
+            color: #388e3c;
+            max-width: 700px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+        
+        .category-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .tab-btn {
+            background: white;
+            border: none;
+            border-radius: 50px;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-weight: 700;
+            cursor: pointer;
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+            transition: all 0.4s ease;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .tab-btn.active {
+            background: #2e7d32;
+            color: white;
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(46, 125, 50, 0.3);
+        }
+        
+        .tab-btn:hover:not(.active) {
+            background: #e8f5e9;
+            transform: translateY(-3px);
+        }
+        
+        .content-container {
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            padding: 30px;
+            min-height: 400px;
+        }
+        
+        .cards-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .card {
+            background: #f5fbf7;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+            border: 1px solid #e0f2e3;
+        }
+        
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 25px rgba(46, 125, 50, 0.2);
+        }
+        
+        .card-header {
+            background: linear-gradient(to right, #43a047, #2e7d32);
+            color: white;
+            padding: 20px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        
+        .card-icon {
+            font-size: 1.8rem;
+        }
+        
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+        }
+        
+        .card-body {
+            padding: 25px;
+        }
+        
+        .card-content {
+            color: #4a6350;
+            line-height: 1.7;
+            margin-bottom: 25px;
+            font-size: 1.05rem;
+        }
+        
+        .card-footer {
+            padding: 0 25px 25px;
+            display: flex;
+            gap: 10px;
+        }
+        
+        .read-btn, .jump-btn {
+            background: #ff9800;
+            color: white;
+            border: none;
+            border-radius: 50px;
+            padding: 12px 20px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+            flex: 1;
+        }
+        
+        .jump-btn {
+            background: #2196f3;
+        }
+        
+        .read-btn:hover {
+            background: #f57c00;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(245, 124, 0, 0.3);
+        }
+        
+        .jump-btn:hover {
+            background: #1976d2;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(25, 118, 210, 0.3);
+        }
+        
+        .loading {
+            text-align: center;
+            padding: 50px 0;
+            font-size: 1.5rem;
+            color: #388e3c;
+        }
+        
+        .loading i {
+            font-size: 3rem;
+            margin-bottom: 20px;
+            display: block;
+            animation: spin 1.5s linear infinite;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            color: #4a6350;
+            font-size: 1.1rem;
+        }
+        
+        .copyright {
+            margin-top: 10px;
+            font-size: 0.9rem;
+            color: #7b9c89;
+        }
+        
+        @media (max-width: 768px) {
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .category-tabs {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-btn {
+                width: 100%;
+                justify-content: center;
+            }
+            
+            .cards-container {
+                grid-template-columns: 1fr;
+            }
+            
+            .card-footer {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <div class="logo-text">天彬TianBIN</div>
+                </div>
+                <div class="nav-buttons">
+                    <button class="nav-btn home-btn" onclick="window.open('https://www.tianbin.net', '_blank')">
+                        <i class="fas fa-home"></i> 返回官网
+                    </button>
+                </div>
+            </div>
+        </div>
+    </header>
+    
+    <main>
+        <div class="container">
+            <div class="section-title">
+                <h1>游戏小说创作资源库</h1>
+                <p>探索丰富的游戏小说框架与角色设定，为您的创作提供灵感与素材</p>
+            </div>
+            
+            <div class="category-tabs">
+                <button class="tab-btn active" data-category="framework">
+                    <i class="fas fa-leaf"></i> 框架
+                </button>
+                <button class="tab-btn" data-category="character">
+                    <i class="fas fa-dragon"></i> 角色
+                </button>
+            </div>
+            
+            <div class="content-container">
+                <div class="cards-container" id="content-area">
+                    <div class="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>正在加载资源，请稍候...</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+    
+    <footer>
+        <div class="container">
+            <p>探索无限创意，开启游戏小说创作之旅</p>
+            <div class="copyright">© 2023 天彬TianBIN | 游戏小说框架官网</div>
+        </div>
+    </footer>
+    
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const tabButtons = document.querySelectorAll('.tab-btn');
+            const contentArea = document.getElementById('content-area');
+            let currentCategory = 'framework';
+            
+            // 初始加载框架数据
+            loadData(currentCategory);
+            
+            // 标签切换事件
+            tabButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    const category = this.getAttribute('data-category');
+                    
+                    // 更新活动标签
+                    tabButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                    
+                    // 加载新类别数据
+                    if (currentCategory !== category) {
+                        currentCategory = category;
+                        loadData(category);
+                    }
+                });
+            });
+            
+            // 加载数据函数
+            async function loadData(category) {
+                contentArea.innerHTML = `
+                    <div class="loading">
+                        <i class="fas fa-spinner"></i>
+                        <p>正在加载${category === 'framework' ? '框架' : '角色'}数据，请稍候...</p>
+                    </div>
+                `;
+                
+                // 根据类别选择API路径
+                const apiPath = category === 'framework' 
+                    ? '../API/index.json' 
+                    : '../api/index.json';
+                
+                try {
+                    const response = await fetch(apiPath);
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP错误! 状态: ${response.status}`);
+                    }
+                    
+                    const data = await response.json();
+                    displayData(data, category);
+                } catch (error) {
+                    contentArea.innerHTML = `
+                        <div class="loading">
+                            <i class="fas fa-exclamation-triangle"></i>
+                            <p>加载失败: ${error.message}</p>
+                            <p style="margin-top: 10px; font-size: 1rem;">请检查API文件是否存在: ${apiPath}</p>
+                        </div>
+                    `;
+                    console.error('API调用错误:', error);
+                }
+            }
+            
+            // 显示数据
+            function displayData(items, category) {
+                if (!items || items.length === 0) {
+                    contentArea.innerHTML = `
+                        <div class="loading">
+                            <i class="fas fa-info-circle"></i>
+                            <p>没有找到${category === 'framework' ? '框架' : '角色'}数据</p>
+                        </div>
+                    `;
+                    return;
+                }
+                
+                let html = '';
+                const icon = category === 'framework' ? '🍃' : '🐍';
+                
+                items.forEach((item, index) => {
+                    // 为每个项目生成跳转路径
+                    const jumpPath = category === 'framework' 
+                        ? `/hjjb${index}/hjvv.html` 
+                        : `/role${index}/detail.html`;
+                    
+                    html += `
+                        <div class="card">
+                            <div class="card-header">
+                                <div class="card-icon">${icon}</div>
+                                <div class="card-title">${item.name}</div>
+                            </div>
+                            <div class="card-body">
+                                <div class="card-content">${item.content}</div>
+                            </div>
+                            <div class="card-footer">
+                                <button class="read-btn" onclick="alert('阅读详情功能：${item.name}')">阅读详情</button>
+                                <button class="jump-btn" onclick="window.open('${jumpPath}', '_blank')">前往页面</button>
+                            </div>
+                        </div>
+                    `;
+                });
+                
+                contentArea.innerHTML = html;
+            }
+        });
+    </script>
+</body>
+</html>
