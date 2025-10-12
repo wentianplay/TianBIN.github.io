@@ -1,5 +1,10 @@
 [
     {
+        "name": "仙道·苏泽川",
+        "content": "仙道始祖",
+        "url": "./api/苏泽川.html"
+    },
+    {
         "name": "魔道·苏子辰",
         "content": "魔道始祖",
         "url": "./api/苏子辰.html"
