@@ -423,32 +423,31 @@
                             <p>没有找到${category === 'framework' ? '框架' : '角色'}数据</p>
                         </div>
                     `;
-                    return;
-                }
-                
-                let html = '';
-                const icon = category === 'framework' ? '🍃' : '🐍';
-                
-                items.forEach((item, index) => {
-                    // 为每个项目生成跳转路径
-                    const jumpPath = category === 'framework' 
-                        ? `/hjjb${index}/hjvv.html` 
-                        : `/role${index}/detail.html`;
-                    
-                    html += `
-                        <div class="card">
-                            <div class="card-header">
-                                <div class="card-icon">${icon}</div>
-                                <div class="card-title">${item.name}</div>
-                            </div>
-                            <div class="card-body">
-                                <div class="card-content">${item.content}</div>
-                            </div>
-                            <div class="card-footer">
-                                <button class="read-btn" onclick="alert('阅读详情功能：${item.name}')">阅读详情</button>
-                                <button class="jump-btn" onclick="window.open('${jumpPath}', '_blank')">前往页面</button>
-                            </div>
-                        </div>
+                     
+return;
+}
+let html = '';
+const icon = category === 'framework' ? '🍃' : '🐍';
+
+items.forEach((item) => {
+    // 直接使用项目中的url属性作为跳转路径
+    const jumpPath = item.url; 
+    
+    html += `
+        <div class="card">
+            <div class="card-header">
+                <div class="card-icon">${icon}</div>
+                <div class="card-title">${item.name}</div>
+            </div>
+            <div class="card-body">
+                <div class="card-content">${item.content}</div>
+            </div>
+            <div class="card-footer">
+                <button class="read-btn" onclick="alert('阅读详情功能：${item.name}')">阅读详情</button>
+                <button class="jump-btn" onclick="window.open('${jumpPath}', '_blank')">前往页面</button>
+            </div>
+        </div>
+    
                     `;
                 });
                 
