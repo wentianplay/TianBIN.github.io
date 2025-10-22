@@ -4,365 +4,132 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>苏梦天 | 《天彬TianBIN》角色档案</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Ma+Shan+Zheng&family=ZCOOL+XiaoWei&display=swap">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', 'Microsoft YaHei', sans-serif;
         }
 
         body {
-            font-family: 'ZCOOL XiaoWei', serif;
-            background: linear-gradient(135deg, #2c3e50, #1a2530);
-            color: #e6f7ff;
-            min-height: 100vh;
+            background-color: #f8f9fa;
+            color: #333;
+            line-height: 1.8;
+            padding: 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .news-container {
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 40px;
+            margin: 30px 0;
+        }
+
+        .news-title {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 25px;
+            color: #1a0dab;
+            text-align: center;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #eaeaea;
+        }
+
+        .news-content {
+            color: #444;
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .news-content p {
+            margin-bottom: 20px;
+            text-indent: 2em;
+        }
+
+        .id-code {
+            text-align: center;
+            font-size: 16px;
+            color: #70757a;
+            padding: 15px;
+            border-top: 1px solid #eaeaea;
+            margin-top: 30px;
+        }
+
+        .nav-links {
             display: flex;
             justify-content: center;
-            align-items: center;
-            padding: 20px;
-            position: relative;
-            overflow-x: hidden;
+            gap: 30px;
+            margin: 30px 0;
         }
 
-        /* 猫爪装饰 */
-        .cat-pattern {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: 
-                radial-gradient(circle at 15% 25%, rgba(231, 76, 60, 0.05) 0%, transparent 10%),
-                radial-gradient(circle at 85% 75%, rgba(52, 152, 219, 0.05) 0%, transparent 10%),
-                radial-gradient(circle at 25% 65%, rgba(231, 76, 60, 0.04) 0%, transparent 8%);
-            z-index: -1;
-        }
-
-        /* 猫爪动画装饰 */
-        .cat-decoration {
-            position: absolute;
-            width: 80px;
-            height: 80px;
-            border-radius: 50%;
-            background: rgba(231, 76, 60, 0.1);
-            top: 15%;
-            left: 8%;
-            animation: catMove 8s infinite alternate;
-            z-index: -1;
-        }
-
-        .cat-decoration:nth-child(2) {
-            top: 75%;
-            left: 80%;
-            animation-delay: -2s;
-            background: rgba(52, 152, 219, 0.1);
-        }
-
-        .container {
-            width: 100%;
-            max-width: 800px;
-            background: rgba(30, 40, 50, 0.85);
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-            overflow: hidden;
-            position: relative;
-            border: 2px solid #e74c3c;
-        }
-
-        .header {
-            background: linear-gradient(90deg, #2c3e50, #34495e);
-            padding: 30px;
-            text-align: center;
-            position: relative;
-            border-bottom: 3px solid #e74c3c;
-        }
-
-        .title {
-            font-family: 'Ma Shan Zheng', cursive;
-            font-size: 3.5rem;
-            font-weight: 400;
-            margin-bottom: 10px;
-            color: #fff;
-            text-shadow: 0 0 15px rgba(231, 76, 60, 0.7);
-            letter-spacing: 2px;
-        }
-
-        .subtitle {
-            font-size: 1.2rem;
-            letter-spacing: 3px;
-            color: #f5b7b1;
-        }
-
-        .content {
-            padding: 30px;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 25px;
-        }
-
-        .info-card {
-            background: rgba(40, 55, 70, 0.4);
-            border-radius: 15px;
-            padding: 20px;
-            border: 2px solid rgba(231, 76, 60, 0.5);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .info-card:hover {
-            transform: translateY(-5px);
-            border-color: #e74c3c;
-            box-shadow: 0 8px 20px rgba(231, 76, 60, 0.4);
-        }
-
-        .info-card::before {
-            content: '';
-            position: absolute;
-            top: -10px;
-            right: -10px;
-            width: 30px;
-            height: 30px;
-            background: #c0392b;
-            border-radius: 50%;
-            filter: blur(10px);
-            z-index: -1;
-        }
-
-        .card-title {
-            font-size: 1.5rem;
-            color: #e74c3c;
-            margin-bottom: 15px;
-            padding-bottom: 10px;
-            border-bottom: 2px dashed rgba(231, 76, 60, 0.5);
-            position: relative;
-        }
-
-        .card-title::after {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 40px;
-            height: 4px;
-            background: #e74c3c;
-            border-radius: 2px;
-        }
-
-        .info-item {
-            padding: 8px 0;
-            display: flex;
-            border-bottom: 1px solid rgba(231, 76, 60, 0.2);
-        }
-
-        .info-label {
-            font-weight: bold;
-            min-width: 100px;
-            color: #f5b7b1;
-        }
-
-        .info-value {
-            flex: 1;
-            color: #ffffff;
-        }
-
-        .special {
-            display: inline-block;
-            background: rgba(52, 152, 219, 0.2);
-            color: #85c1e9;
-            padding: 2px 8px;
+        .nav-links a {
+            color: #1a73e8;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
             border-radius: 4px;
-            font-weight: bold;
+            transition: all 0.3s;
         }
 
-        .footer {
-            padding: 20px;
-            text-align: center;
-            background: rgba(25, 35, 45, 0.9);
-            border-top: 2px solid #e74c3c;
-            font-size: 0.9rem;
-            color: #f5b7b1;
+        .nav-links a:hover {
+            background-color: #e8f0fe;
         }
 
-        .copyright {
-            color: #85c1e9;
-            font-weight: bold;
-            letter-spacing: 1px;
-        }
-
-        .character-tag {
-            display: inline-block;
-            padding: 3px 10px;
-            border-radius: 20px;
-            background: rgba(231, 76, 60, 0.15);
-            color: #e74c3c;
-            margin: 3px;
-            font-size: 0.9rem;
-        }
-
-        /* 动画效果 */
-        @keyframes catMove {
-            0% {
-                transform: translateX(0) translateY(0);
-            }
-            50% {
-                transform: translateX(20px) translateY(10px);
-            }
-            100% {
-                transform: translateX(-10px) translateY(-5px);
-            }
-        }
-
-        .glowing-border {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            border: 2px solid transparent;
-            border-radius: 20px;
-            box-shadow: inset 0 0 20px rgba(231, 76, 60, 0.2),
-                        0 0 20px rgba(231, 76, 60, 0.1);
-            animation: glow 3s infinite alternate;
-            pointer-events: none;
-        }
-
-        @keyframes glow {
-            to {
-                box-shadow: inset 0 0 30px rgba(231, 76, 60, 0.4),
-                            0 0 30px rgba(231, 76, 60, 0.3);
-            }
-        }
-
-        /* 响应式设计 */
         @media (max-width: 600px) {
-            .title {
-                font-size: 2.5rem;
+            body {
+                padding: 10px;
             }
-            .content {
-                grid-template-columns: 1fr;
+
+            .news-container {
+                padding: 25px;
+            }
+
+            .news-title {
+                font-size: 26px;
+            }
+
+            .news-content {
+                font-size: 16px;
+            }
+
+            .nav-links {
+                flex-direction: column;
+                align-items: center;
+                gap: 15px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="cat-pattern"></div>
-    <div class="cat-decoration"></div>
-    <div class="cat-decoration"></div>
-
-    <div class="container">
-        <div class="glowing-border"></div>
-
-        <div class="header">
-            <h1 class="title">苏梦天</h1>
-            <p class="subtitle">《天彬TianBIN》角色档案</p>
-        </div>
-
-        <div class="content">
-            <div class="info-card">
-                <h2 class="card-title">基本信息</h2>
-                <div class="info-item">
-                    <span class="info-label">姓名：</span>
-                    <span class="info-value">苏梦天</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">性别：</span>
-                    <span class="info-value">男</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">年龄：</span>
-                    <span class="info-value">16岁</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">种族：</span>
-                    <span class="info-value">猫妖（男猫猫）</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">身高：</span>
-                    <span class="info-value">170cm</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">体重：</span>
-                    <span class="info-value">50公斤</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">尾巴长度：</span>
-                    <span class="info-value">1.2米</span>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2 class="card-title">外观特征</h2>
-                <div class="info-item">
-                    <span class="info-label">头发：</span>
-                    <span class="info-value">白色</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">瞳色：</span>
-                    <span class="info-value">红色</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">体型：</span>
-                    <span class="info-value">少年</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">衣着：</span>
-                    <span class="info-value">蓝色衣服</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">身体特征：</span>
-                    <span class="info-value">头顶有向后卷的大呆毛，脖子和尾巴有绷带</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">伤情：</span>
-                    <span class="info-value">经历大战导致脖子和尾巴重伤</span>
-                </div>
-            </div>
-
-            <div class="info-card">
-                <h2 class="card-title">能力与背景</h2>
-                <div class="info-item">
-                    <span class="info-label">特殊能力：</span>
-                    <span class="info-value"><span class="special">小范围传送</span>（使用后需休息）</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">元素控制：</span>
-                    <span class="info-value"><span class="special">火焰控制</span>（偶尔会失控烧伤自己）</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">背景：</span>
-                    <span class="info-value">妖王之子，曾被父亲舍弃</span>
-                </div>
-                <div class="info-item">
-                    <span class="info-label">性格转变：</span>
-                    <span class="info-value">从作恶到遇见伙伴后变得善良</span>
-                </div>
-
-                <div style="margin-top: 20px;">
-                    <span class="character-tag">猫妖少年</span>
-                    <span class="character-tag">火焰掌控</span>
-                    <span class="character-tag">空间传送</span>
-                    <span class="character-tag">妖王之子</span>
-                    <span class="character-tag">从恶向善</span>
-                </div>
-            </div>
-        </div>
-
-        <div class="footer">
-            <p class="copyright">版权所有 © 文天玩WenTianPlay</p>
-        </div>
+    <!-- 导航链接 -->
+    <div class="nav-links">
+        <a href="https://m.tianbin.net/">返回首页</a>
+        <a href="https://www.wentianplay.cn/">文天玩</a>
     </div>
 
-    <script>
-        // 添加鼠标移动背景效果
-        document.addEventListener('mousemove', function(e) {
-            const container = document.querySelector('.container');
-            const xAxis = (window.innerWidth / 2 - e.pageX) / 25;
-            const yAxis = (window.innerHeight / 2 - e.pageY) / 25;
-            container.style.transform = `rotateY(${xAxis}deg) rotateX(${yAxis}deg)`;
-        });
-    </script>
+    <!-- 框架内容 -->
+    <div class="news-container">
+                <h1 class="news-title">角色设定：苏梦天</h1>
+
+        <div class="news-content">
+<p>一句话概要：注意苏梦天是梦雕的本名，同时也是只男猫猫噢</p>
+<p>姓名：苏梦天</p>
+<p>种族：猫妖</p>
+<p>性别：男｜年龄：16岁（少年体态）</p>
+<p>身高：170cm｜体重：50kg</p>
+<p>外貌发色：白色头发、头顶有根往后卷的大朵毛</p>
+<p>瞳色：红色瞳色</p>
+<p>体型：少年。</p>
+<p>衣服：蓝色衣服｜尾巴长度：1m2</p>
+<p>头顶有根往后卷的大朵毛，尾巴后和脖子有绷带（经历了一场大战导致脖子和尾巴深受重伤）</p>
+<p>性格：善良（原为人间作乱，后遇伙伴逐渐改变）｜特殊能力：视野范围内小范围传送（得缓过几口气才能再次使用）、控制火焰（控制不住偶尔还会烧到自己</p>
+<p>《天彬TianBIN》苏梦天背景：其父为妖王，小时候被妖王舍弃。后经常去人间搞乱，吃掉了很多人的性命。而后遇见同是妖的伙伴逐渐变成一只善良的猫妖。</p>
+        </div>
+        <div class="id-code">起点小说《<a href="https://www.qidian.com/book/1041003789/">天彬</a>》</div>
+    </div>
 </body>
 </html>
