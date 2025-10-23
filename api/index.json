@@ -1,5 +1,10 @@
 [
     {
+        "name": "晚禾",
+        "content": "版权所有：徐慧敏",
+        "url": "./api/晚禾.html"
+    },
+    {
         "name": "探险者",
         "content": "玩家控制的角色",
         "url": "./api/探险者.html"
