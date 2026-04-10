@@ -1,0 +1,4 @@
+# robots.txt for www.wentianyo.com
+User-agent: *
+Allow: /
+Sitemap: https://www.wentianplay.net/sitemap.xml
